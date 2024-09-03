@@ -1,7 +1,6 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 
-const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const MainLayout = () => {
   return (
     <div className='main-layout'>
       <header>Main Header</header>

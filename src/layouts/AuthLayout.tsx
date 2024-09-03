@@ -1,7 +1,6 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 
-const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const AuthLayout = () => {
   return (
     <div>
       {/* <header>Auth Header</header> */}
