@@ -7,75 +7,66 @@ import {
   Button,
   Input,
   Label,
+  LoginContainer,
+  LoginCard,
+  LoginImage,
+  LoginCardHeader,
 } from "@/components";
-import { usePageTitle } from "@/hooks";
+import { useConstantStrings, usePageTitle } from "@/hooks";
 import { Link } from "react-router-dom";
 
 const Login = () => {
   usePageTitle("Login | viteCRM");
+  const strings = useConstantStrings();
 
   return (
     <>
-      <div className='w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]'>
-        <div className='flex items-center justify-center py-12'>
-          <div className='mx-auto grid w-[350px] gap-6'>
-            <div className='grid gap-2 text-center'>
-              <h1 className='text-3xl font-bold'>Login</h1>
-              <p className='text-balance text-muted-foreground'>
-                Enter your email below to login to your account
-              </p>
-            </div>
-            <div className='grid gap-4'>
-              <div className='grid gap-2'>
-                <Label htmlFor='email'>Email</Label>
-                <Input
-                  id='email'
-                  type='email'
-                  placeholder='m@example.com'
-                  required
-                />
-              </div>
-              <div className='grid gap-2'>
-                <div className='flex items-center'>
-                  <Label htmlFor='password'>Password</Label>
-                </div>
-                <Input id='password' type='password' required />
-              </div>
-              <Button type='submit' className='w-full'>
-                Login
-              </Button>
-              <div className='grid gap-2'>
-                <div className='flex items-center'>
-                  <Link
-                    to='/forgot-password'
-                    className='ml-auto inline-block text-sm underline'
-                  >
-                    Forgot your password?
-                  </Link>
-                </div>
-              </div>
-              <Button variant='outline' className='w-full'>
-                Login with Google
-              </Button>
-            </div>
-            <div className='mt-4 text-center text-sm'>
-              Don&apos;t have an account?{" "}
-              <Link to='/register' className='underline'>
-                Sign up
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className='hidden bg-muted lg:block'>
-          <img
-            src='https://placehold.co/1920x1080'
-            alt='BrandImage'
-            width='1920'
-            height='1080'
-            className='h-full w-full object-cover dark:brightness-[0.2] dark:grayscale'
+      <LoginContainer>
+        <LoginCard>
+          <LoginCardHeader
+            title={strings.LOGIN_CARD_TITLE}
+            description={strings.LOGIN_CARD_DESCRIPTION}
           />
-        </div>
-      </div>
+          <div className='grid gap-4'>
+            <div className='grid gap-2'>
+              <Label htmlFor='email'>Email</Label>
+              <Input
+                id='email'
+                type='email'
+                placeholder='m@example.com'
+                required
+              />
+            </div>
+            <div className='grid gap-2'>
+              <Label htmlFor='password'>Password</Label>
+              <Input id='password' type='password' required />
+            </div>
+            <Button type='submit' className='w-full'>
+              Login
+            </Button>
+            <div className='grid gap-2'>
+              <div className='flex items-center'>
+                <Link
+                  to='/forgot-password'
+                  className='ml-auto inline-block text-sm underline'
+                >
+                  Forgot your password?
+                </Link>
+              </div>
+            </div>
+            <Button variant='outline' className='w-full'>
+              Login with Google
+            </Button>
+          </div>
+          <div className='mt-4 text-center text-sm'>
+            Don&apos;t have an account?{" "}
+            <Link to='/register' className='underline'>
+              Sign up
+            </Link>
+          </div>
+        </LoginCard>
+        <LoginImage />
+      </LoginContainer>
     </>
   );
 };
