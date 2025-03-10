@@ -1,8 +1,10 @@
+import LoginPNG from "@/assets/login.png";
+
 const LoginImage = () => {
   return (
     <div className='hidden bg-muted lg:block'>
       <img
-        src='https://placehold.co/1920x1080'
+        src={LoginPNG}
         alt='BrandImage'
         width='1920'
         height='1080'
